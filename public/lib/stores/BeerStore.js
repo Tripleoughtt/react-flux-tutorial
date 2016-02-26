@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import AppDispatcher from '../AppDispatcher';
 
-let _beer;
+let _beers = [];
 
 class BeerStore extends EventEmitter {
   constructor(props) {
@@ -10,7 +10,7 @@ class BeerStore extends EventEmitter {
     AppDispatcher.register((action) => {
       switch(action.type) {
         case 'RECEIVE_RANDOM_BEER':
-          _beer = action.beer;
+          _beers = [..._beers, action.beer];
           console.log('Inside App Dispatcher');
           this.emit('CHANGE');
           break;
@@ -19,7 +19,7 @@ class BeerStore extends EventEmitter {
   }
 
   getRandomBeer() {
-    return _beer;
+    return _beers;
   }
 
   startListening(cb) {

@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class BeerCard extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-
-    );
-  }
-}
+const BeerCard = ({ name, abv, description, id }) => (
+  <div key={ id }>
+    <h3>{ name }</h3>
+    <h3>{ abv }</h3>
+    <p>{ description }</p>
+  </div>
+);
 
 export default BeerCard;

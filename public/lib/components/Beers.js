@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import BeerButton from './BeerButton';
 import BeerActions from '../actions/BeerActions';
 import BeerStore from '../stores/BeerStore';
+import BeerCard from './BeerCard';
 
 let _getAppState = () => {
   return {
-     beer: BeerStore.getRandomBeer()
+     beers: BeerStore.getRandomBeer()
   };
 }
 
@@ -34,10 +35,11 @@ class Beers extends Component {
   }
 
   render() {
-    let beer = this.state.beer ? this.state.beer.name : 'No Beer';
+    let beers =
+    this.state.beers.map((beer, i) => BeerCard(beer));
     return (
       <div>
-        <h1>{ beer }</h1>
+        { beers }
         <BeerButton getTheBeer={this.getTheBeer.bind(this)} />
       </div>
     );
