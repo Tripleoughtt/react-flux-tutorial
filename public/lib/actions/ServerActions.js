@@ -1,9 +1,13 @@
-// import AppDispatcher from '../AppDispatcher';
+import AppDispatcher from '../AppDispatcher';
 
-let ServerActions = {
-  receiveRandomBeer(beer) {
-    console.log(beer);
+const ServerActions = {
+  receivePokemon(pokemon) {
+    console.log('Inside Server Actions');
+    AppDispatcher.dispatch({
+      type: 'RECEIVE_SINGLE_POKEMON',
+      pokemon: pokemon
+    });
   }
-};
+}
 
 export default ServerActions;

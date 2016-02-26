@@ -1,12 +1,14 @@
 import { get } from 'jquery';
 import ServerActions from './actions/ServerActions';
 
-let API = {
-  getRandomBeerReq() {
-      get('http://pokeapi.co/api/v2/pokemon/233')
-      .then(res => {
-        ServerActions.receiveRandomBeer(res);
-      });
+const API = {
+  getSinglePokemon() {
+    console.log('Inside API getting pokemon');
+    get('http://pokeapi.co/api/v1/pokemon/129/')
+    .then(res => {
+      console.log('Inside API received pokemon');
+      ServerActions.receivePokemon(res);
+    });
   }
 }
 
