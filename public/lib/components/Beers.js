@@ -34,10 +34,10 @@ class Beers extends Component {
   }
 
   render() {
-    let beer = this.state.beer ? this.state.beer : 'No Beer';
+    let beer = this.state.beer ? this.state.beer.name : 'No Beer';
     return (
       <div>
-        { beer }
+        <h1>{ beer }</h1>
         <BeerButton getTheBeer={this.getTheBeer.bind(this)} />
       </div>
     );
