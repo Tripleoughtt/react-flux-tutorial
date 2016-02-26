@@ -1,6 +1,7 @@
 import React from 'react';
 import PokemonStore from '../stores/PokemonStore';
 import PokemonActions from '../actions/PokemonActions';
+import Beers from './Beers';
 
 let _getAppState = () => {
   console.log('render component');
@@ -36,9 +37,7 @@ class AppController extends React.Component {
     let pokemon = this.state.pokemon ? this.state.pokemon.name : 'Waiting To Receive Pokemon';
     return (
       <div>
-        Hello World!
-        <h1>{ pokemon }</h1>
-        <button onClick={this.getSinglePokemon}>Pokemon</button>
+        <Beers />
       </div>
     );
   }

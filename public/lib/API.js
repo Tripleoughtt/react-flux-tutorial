@@ -9,6 +9,14 @@ const API = {
       console.log('Inside API received pokemon');
       ServerActions.receivePokemon(res);
     });
+  },
+  getRandomBeer() {
+    console.log('api');
+    get('/beers/random')
+    .then(res => {
+      console.log(res.data);
+      ServerActions.receiveRandomBeer(res.data);
+    });
   }
 }
 

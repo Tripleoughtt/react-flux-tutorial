@@ -5,6 +5,8 @@ import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
+import beersRoute from './routes/beersRoute';
+
 const PORT = process.env.PORT || 3000;
 const app = express();
 
@@ -19,6 +21,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/beers', beersRoute);
 
 app.get('*', function(req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));

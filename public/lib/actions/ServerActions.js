@@ -5,7 +5,14 @@ const ServerActions = {
     console.log('Inside Server Actions');
     AppDispatcher.dispatch({
       type: 'RECEIVE_SINGLE_POKEMON',
-      pokemon: pokemon
+      pokemon
+    });
+  },
+  receiveRandomBeer(beer) {
+    console.log('Inside ServerActions');
+    AppDispatcher.dispatch({
+      type: 'RECEIVE_RANDOM_BEER',
+      beer
     });
   }
 }
